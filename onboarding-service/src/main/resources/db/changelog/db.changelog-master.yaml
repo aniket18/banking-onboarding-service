@@ -1,0 +1,53 @@
+databaseChangeLog:
+  - changeSet:
+      id: 000
+      author: aniket
+      context: development
+      changes:
+        - sql:
+            sql: CREATE SCHEMA IF NOT EXISTS onboarding;
+
+  - changeSet:
+      id: 001
+      author: aniket
+      context: development
+      changes:
+        - sqlFile:
+            path: 001_create_customer.sql
+            relativeToChangelogFile: true
+
+  - changeSet:
+      id: 002
+      author: aniket
+      context: development
+      changes:
+        - sqlFile:
+            path: 002_create_customer_verification.sql
+            relativeToChangelogFile: true
+
+  - changeSet:
+      id: 003
+      author: aniket
+      context: development
+      changes:
+        - sqlFile:
+            path: 003_create_kyc_document.sql
+            relativeToChangelogFile: true
+
+  - changeSet:
+      id: 004
+      author: aniket
+      context: development
+      changes:
+        - sqlFile:
+            path: 004_create_onboarding_status.sql
+            relativeToChangelogFile: true
+
+  - changeSet:
+      id: 005
+      author: aniket
+      context: development
+      changes:
+        - sqlFile:
+            path: 005_create_audit_log.sql
+            relativeToChangelogFile: true

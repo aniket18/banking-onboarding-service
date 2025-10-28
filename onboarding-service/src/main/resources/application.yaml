@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: onboarding-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bankingappdb_dev
+    username: postgres
+    password: keycloak
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+    contexts: development
+    default-schema: onboarding
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${random.value}
+server:
+    port: 9000
